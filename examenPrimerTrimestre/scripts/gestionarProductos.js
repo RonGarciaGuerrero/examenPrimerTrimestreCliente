@@ -1,6 +1,6 @@
 //Crear la tabla en gestionar productos
 function crearTablaProductos(productos) {
-    var cadena = "<table class='tableProd'><tr><th>Nombre</th><th>Marca</th><th>Categoria</th><th>Disponibilidad</th><th>Resumen</th><th>Descripción</th><th>Acciones</th></tr>";
+    var cadena = "<table id='tableProd'><thead><tr><th>Nombre</th><th>Marca</th><th>Categoria</th><th>Cantidad</th><th>Resumen</th><th>Descripción</th><th>Acciones</th></tr></thead><tbody id='tableProdBody'>";//SEDIVIDE LA TABLA ENTRE THEAD Y TBODY PARA QUE AL INSERTAR UN ELEMENTO NUEVO SE PUEDA USAR EL INNERHTML DEL TBODY
     
     //Itero entre cada objeto producto
     for(var i=0; i<productos.length;i++){
@@ -8,7 +8,7 @@ function crearTablaProductos(productos) {
     cadena +=
         "<tr><td>" + prod.nombre + "</td><td>" + prod.marca + "</td><td>" + prod.categoria + "</td><td>" + prod.unidades + "</td><td>" + prod.resumen + "</td><td>" + prod.descripcion + "</td><td><button class='eliminar'>Eliminar</button></td></tr>";
     }
-    cadena += "</table>";  
+    cadena += "</tbody></table>";  
     return cadena;//devuelve una cadena con el html que pinta cada producto
 }
 
@@ -37,7 +37,68 @@ window.addEventListener("DOMContentLoaded", function () {//todo lo que debe espe
             //EJEMPLO DE COMO REDIJIRIR DESPUES DE BORRAR
         });
     };
+    //funcion limpiar campos /LIMPIAR CAMPOS .VALUE VACIO
+    function limpiarCampos(){
+        document.getElementById('nombre').value='';
+        document.getElementById('marca').value='';
+        document.getElementById('categoria').value='seleccionar';
+        document.getElementById('cantidad').value='';
+        document.getElementById('resumen').value='';
+        document.getElementById('descripcion').value='';
+    }
 
-
-
+    document.getElementById("botonAniadir").addEventListener('click',function(){
+        document.getElementById("formulario").style.display="block";
+        document.getElementById("botonAniadir").style.display="none";
+    });
+    document.getElementById("cancelar").addEventListener('click',function(){
+    //llamar a la funcion que limpia los campos
+        limpiarCampos();
+        document.getElementById("formulario").style.display="none";
+        document.getElementById("botonAniadir").style.display="block";
+    });
+    
+    document.getElementById("aceptar").addEventListener('click',function(){
+        var errores =[];
+        if(document.getElementById('nombre').value.length==0){
+            errores.push('El nombre es obligatorio');
+        }
+        if(document.getElementById('marca').value.length==0){
+            errores.push('La marca es obligatoria');
+        }
+        if(document.getElementById('categoria').value.length==0){
+            errores.push('La categoria es obligatoria');
+        }
+        
+        if(document.getElementById('cantidad').value.length==0){
+            errores.push('La cantidad es obligatoria');
+        }
+        if(document.getElementById('cantidad').value <= 0){
+            errores.push('La cantidad no puede ser menor que 0');
+        }
+        if(document.getElementById('resumen').value.length==0){
+            errores.push('El resumen es obligatorio');
+        }
+        if(document.getElementById('descripcion').value.length==0){
+            errores.push('La descripcion es obligatoria');
+        }
+        if(errores.length==0){
+            //var htmlAntiguo=document.getElementById('tableProdBody').innerHTML;
+            //pendiente: escapar posible codigo html en los inputs
+            document.getElementById('tableProdBody').innerHTML="<tr><td>" + document.getElementById('nombre').value + "</td><td>" + document.getElementById('marca').value + "</td><td>" + document.getElementById('categoria').value + "</td><td>" + document.getElementById('cantidad').value + "</td><td>" + document.getElementById('resumen').value + "</td><td>" + document.getElementById('descripcion').value + "</td><td><button class='eliminar'>Eliminar</button></td></tr>" + document.getElementById('tableProdBody').innerHTML;
+            
+            document.getElementById("formulario").style.display="none";
+            document.getElementById("botonAniadir").style.display="block";
+            limpiarCampos();//LIMPIAR CAMPOS
+        }else{
+            var htmlErrores='<p>El formulario tiene errores: </p><ul>';
+            for(var i=0;i<errores.length;i++){
+                htmlErrores += 
+                '<li>'+errores[i]+'</li>';
+            }
+            htmlErrores += '</ul>';
+            document.getElementById('errores').innerHTML=htmlErrores;         
+        }
+        
+    });
 });
