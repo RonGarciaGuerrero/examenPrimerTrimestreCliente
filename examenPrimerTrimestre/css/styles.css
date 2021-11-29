@@ -6,6 +6,8 @@ body {
     max-width: 200px;
     text-align: center;
     margin: 40px;
+    cursor: pointer;
+    /* para que salga el dedo en el cursor */
   }
   
   .prod h2 {
@@ -98,10 +100,10 @@ body {
   }
   /* Reglas de validacion formulario */
   input:invalid{
-    background-color: #ffdddd;
+    background-color: rgb(255, 223, 186);
   }
   input:valid {
-    background-color: #ddffdd;
+    background-color: rgb(186, 255, 201);
   }
   .tableAniadir, th, td{
     border:none;

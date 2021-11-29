@@ -4,10 +4,11 @@ function crearProdcutos(productos) {
 var cadena = "";
 
 //Itero entre cada objeto producto
+//se ha puesto al div que contiene el producto un onclick que redirige a la pagina producto.html?idProd="+i+" añade un parametro idProd a la url y asi despues compararlo con al atributo del objeto
 for(var i=0; i<productos.length;i++){
     var prod = productos[i];
     cadena +=
-    "<div id ='prod"+i+"' class='prod'><h2>" +
+    "<div onclick='window.location=\"./producto.html?idProd="+i+"\"' class='prod'><h2>" +
     prod.nombre +
     "</h2>" + "<img src="+prod.foto+" height='200px'>" + "<p>" +
     prod.resumen +
@@ -120,13 +121,6 @@ window.addEventListener("DOMContentLoaded", function () {//todo lo que debe espe
         //EJEMPLO DE COMO REDIJIRIR DESPUES DE BORRAR
         });
     };
-
-    //ir a la ficha
-    var seleccion = getElementById('prod0');
-    seleccion.addEventListener('click',function(){
-        window.location = './web/'+objArrayProducto.url;
-    });
-    
 
     
 

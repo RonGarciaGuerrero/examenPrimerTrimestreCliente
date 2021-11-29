@@ -3,7 +3,7 @@
 window.addEventListener("DOMContentLoaded", function () {//todo lo que debe esperar a que se cargue la pagina se mete en esta función
 
     //se crea el objeto usuario administrador
-    var usuarioAdmin = {'nombreUsuario':'Ron','password':'passworduno','url':'../web/gestionarProductos.html'};
+    var usuarioAdmin = {'nombreUsuario':'Ron','password':'passworduno'};
     // Lo guardamos en localStorage, pasándolo a cadena con JSON
     localStorage.setItem('Ron', JSON.stringify(usuarioAdmin));
     // Creamos una nueva variable object2 con el valor obtenido de localStorage usando JSON recuperar el objeto inicial
@@ -31,7 +31,7 @@ window.addEventListener("DOMContentLoaded", function () {//todo lo que debe espe
         }
 
         if(errores.length==0){
-            window.location = usuarioAdmin2.url;
+            window.location = '../web/gestionarProductos.html';
         }else{
             var htmlErrores='<p>El formulario tiene errores: </p><ul>';
                 for(var i=0;i<errores.length;i++){

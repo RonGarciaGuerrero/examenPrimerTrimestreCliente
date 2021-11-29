@@ -1,12 +1,12 @@
 //Crear la tabla en gestionar productos
 function crearTablaProductos(productos) {
-    var cadena = "<table id='tableProd'><thead><tr><th>Nombre</th><th>Marca</th><th>Categoria</th><th>Cantidad</th><th>Resumen</th><th>Descripción</th><th>Acciones</th></tr></thead><tbody id='tableProdBody'>";//SEDIVIDE LA TABLA ENTRE THEAD Y TBODY PARA QUE AL INSERTAR UN ELEMENTO NUEVO SE PUEDA USAR EL INNERHTML DEL TBODY
+    var cadena = "<table id='tableProd'><thead><tr><th>Nombre</th><th>Marca</th><th>Categoria</th><th>Cantidad</th><th>Precio</th><th>Resumen</th><th>Descripción</th><th>Acciones</th></tr></thead><tbody id='tableProdBody'>";//SEDIVIDE LA TABLA ENTRE THEAD Y TBODY PARA QUE AL INSERTAR UN ELEMENTO NUEVO SE PUEDA USAR EL INNERHTML DEL TBODY
     
     //Itero entre cada objeto producto
     for(var i=0; i<productos.length;i++){
     var prod = productos[i];
     cadena +=
-        "<tr><td>" + prod.nombre + "</td><td>" + prod.marca + "</td><td>" + prod.categoria + "</td><td>" + prod.unidades + "</td><td>" + prod.resumen + "</td><td>" + prod.descripcion + "</td><td><button class='eliminar'>Eliminar</button></td></tr>";
+        "<tr><td>" + prod.nombre + "</td><td>" + prod.marca + "</td><td>" + prod.categoria + "</td><td>" + prod.unidades + "</td><td>" + prod.precio + "</td><td>" + prod.resumen + "</td><td>" + prod.descripcion + "</td><td><button class='eliminar'>Eliminar</button></td></tr>";
     }
     cadena += "</tbody></table>";  
     return cadena;//devuelve una cadena con el html que pinta cada producto
@@ -45,8 +45,9 @@ window.addEventListener("DOMContentLoaded", function () {//todo lo que debe espe
         document.getElementById('cantidad').value='';
         document.getElementById('resumen').value='';
         document.getElementById('descripcion').value='';
+        document.getElementById('precio').value='';
     }
-
+    //AÑADIR Oculto el boton
     document.getElementById("botonAniadir").addEventListener('click',function(){
         document.getElementById("formulario").style.display="block";
         document.getElementById("botonAniadir").style.display="none";
@@ -82,10 +83,13 @@ window.addEventListener("DOMContentLoaded", function () {//todo lo que debe espe
         if(document.getElementById('descripcion').value.length==0){
             errores.push('La descripcion es obligatoria');
         }
+        if(document.getElementById('precio').value.length==0){
+            errores.push('El precio es obligatoria');
+        }
         if(errores.length==0){
             //var htmlAntiguo=document.getElementById('tableProdBody').innerHTML;
             //pendiente: escapar posible codigo html en los inputs
-            document.getElementById('tableProdBody').innerHTML="<tr><td>" + document.getElementById('nombre').value + "</td><td>" + document.getElementById('marca').value + "</td><td>" + document.getElementById('categoria').value + "</td><td>" + document.getElementById('cantidad').value + "</td><td>" + document.getElementById('resumen').value + "</td><td>" + document.getElementById('descripcion').value + "</td><td><button class='eliminar'>Eliminar</button></td></tr>" + document.getElementById('tableProdBody').innerHTML;
+            document.getElementById('tableProdBody').innerHTML="<tr><td>" + document.getElementById('nombre').value + "</td><td>" + document.getElementById('marca').value + "</td><td>" + document.getElementById('categoria').value + "</td><td>" + document.getElementById('cantidad').value + "</td><td>" + document.getElementById('precio').value + "</td><td>" + document.getElementById('resumen').value + "</td><td>" + document.getElementById('descripcion').value + "</td><td><button class='eliminar'>Eliminar</button></td></tr>" + document.getElementById('tableProdBody').innerHTML;
             
             document.getElementById("formulario").style.display="none";
             document.getElementById("botonAniadir").style.display="block";
