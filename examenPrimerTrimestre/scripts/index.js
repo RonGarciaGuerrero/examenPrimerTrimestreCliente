@@ -7,7 +7,7 @@ var cadena = "";
 for(var i=0; i<productos.length;i++){
     var prod = productos[i];
     cadena +=
-    "<div class='prod'><h2>" +
+    "<div id ='prod"+i+"' class='prod'><h2>" +
     prod.nombre +
     "</h2>" + "<img src="+prod.foto+" height='200px'>" + "<p>" +
     prod.resumen +
@@ -121,6 +121,12 @@ window.addEventListener("DOMContentLoaded", function () {//todo lo que debe espe
         });
     };
 
+    //ir a la ficha
+    var seleccion = getElementById('prod0');
+    seleccion.addEventListener('click',function(){
+        window.location = './web/'+objArrayProducto.url;
+    });
+    
 
     
 

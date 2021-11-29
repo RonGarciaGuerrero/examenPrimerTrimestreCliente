@@ -72,6 +72,12 @@ body {
     
     width: 100%;
   }
+  #filtrosOcultos{
+    display: none;
+  }
+  .novedades{
+    
+  }
 
   #tableProd, th, td{
     border: 1px solid black;

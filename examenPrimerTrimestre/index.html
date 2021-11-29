@@ -19,7 +19,7 @@
         <div class="login"><img src="./img/icons/shopping-cart.png" alt="carrito" height="15px" title="Carrito">&nbsp;&nbsp;&nbsp;&nbsp;<a href="./web/login.html"><img src="./img/icons/padlock.png" alt="login" height="15px" title="Login"></a></div>
       </div>
       <nav>
-        <div class="secciones"><div class="sec">La tienda</div><div class="sec">Productos</div><div class="sec">Marcas</div><div class="sec">Servicios</div><div style="clear: both;"></div></div>
+        <a href=""><div class="secciones"><div class="sec">La tienda</div></a><a href="./web/seccionProductos.html"><div class="sec">Productos</div></a><a href="#"><div class="sec">Marcas</div></a><a href="#"><div class="sec">Servicios</div></a><div style="clear: both;"></div></div>
       </nav>
       
     </header>
@@ -30,14 +30,16 @@
         <div class="raton"></div>
         <div class="noRaton"></div>
       </div>
+      <marquee><h2 class="novedades">Novedades! Novedades! Novedades! Novedades!</h2></marquee>
+      <div id="filtrosOcultos">
+        <button id="filtro-luces">Filtrar por luces</button>
+        <button id="filtro-botones">Filtrar por botones</button>
+        <button id="filtro-cerraduras">Filtrar por cerraduras</button>
+        <button id="filtro-aires">Filtrar por aires acondicionados</button>
+        <button id="limpiar-filtros">Eliminar filtros</button>
+      </div>
 
-      <!-- <button id="filtro-luces">Filtrar por luces</button>
-      <button id="filtro-botones">Filtrar por botones</button>
-      <button id="filtro-cerraduras">Filtrar por cerraduras</button>
-      <button id="filtro-aires">Filtrar por aires acondicionados</button>
-
-
-      <button id="limpiar-filtros">Eliminar filtros</button> -->
+      
       
       <div id="seccionProductos"></div>
     </main>
