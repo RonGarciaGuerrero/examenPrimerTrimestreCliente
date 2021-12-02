@@ -3,14 +3,12 @@
 window.addEventListener("DOMContentLoaded", function () {//todo lo que debe esperar a que se cargue la pagina se mete en esta función
 
     //se crea el objeto usuario administrador
-    var usuarioAdmin = {'nombreUsuario':'Ron','password':'passworduno'};
+    var usuarioAdmin = {'nombreUsuario':'ron','password':'ron'};
     // Lo guardamos en localStorage, pasándolo a cadena con JSON
     localStorage.setItem('Ron', JSON.stringify(usuarioAdmin));
     // Creamos una nueva variable object2 con el valor obtenido de localStorage usando JSON recuperar el objeto inicial
     var usuarioAdmin2 = JSON.parse(localStorage.getItem('Ron'));
-    //alert(usuarioAdmin2.nombreUsuario); // La alerta mostrará el usuario
-    //alert(usuarioAdmin2.password); // La alerta mostrará la contraseña
-    //alert(usuarioAdmin2.url);
+    
 
 
 

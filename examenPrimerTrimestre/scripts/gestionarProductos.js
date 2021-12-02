@@ -6,7 +6,7 @@ function crearTablaProductos(productos) {
     for(var i=0; i<productos.length;i++){
     var prod = productos[i];
     cadena +=
-        "<tr><td>" + prod.nombre + "</td><td>" + prod.marca + "</td><td>" + prod.categoria + "</td><td>" + prod.unidades + "</td><td>" + prod.precio + "</td><td>" + prod.resumen + "</td><td>" + prod.descripcion + "</td><td><button class='eliminar'>Eliminar</button></td></tr>";
+        "<tr><td>" + prod.nombre + "</td><td>" + prod.marca + "</td><td>" + prod.categoria + "</td><td>" + prod.unidades + "</td><td>" + prod.precio + "</td><td>" + prod.resumen + "</td><td>" + prod.descripcion + "</td><td><button>Eliminar</button></td></tr>";
     }
     cadena += "</tbody></table>";  
     return cadena;//devuelve una cadena con el html que pinta cada producto
@@ -33,8 +33,7 @@ window.addEventListener("DOMContentLoaded", function () {//todo lo que debe espe
             var botonActual = event.currentTarget;
             // voy buscando en el arbol el padre del td que es el tr y asi eliminar la fila entera
             botonActual.parentNode.parentNode.parentNode.removeChild(botonActual.parentNode.parentNode);
-            //window.location = "template.html"; 
-            //EJEMPLO DE COMO REDIJIRIR DESPUES DE BORRAR
+            
         });
     };
     //funcion limpiar campos /LIMPIAR CAMPOS .VALUE VACIO
@@ -87,9 +86,9 @@ window.addEventListener("DOMContentLoaded", function () {//todo lo que debe espe
             errores.push('El precio es obligatoria');
         }
         if(errores.length==0){
-            //var htmlAntiguo=document.getElementById('tableProdBody').innerHTML;
-            //pendiente: escapar posible codigo html en los inputs
-            document.getElementById('tableProdBody').innerHTML="<tr><td>" + document.getElementById('nombre').value + "</td><td>" + document.getElementById('marca').value + "</td><td>" + document.getElementById('categoria').value + "</td><td>" + document.getElementById('cantidad').value + "</td><td>" + document.getElementById('precio').value + "</td><td>" + document.getElementById('resumen').value + "</td><td>" + document.getElementById('descripcion').value + "</td><td><button class='eliminar'>Eliminar</button></td></tr>" + document.getElementById('tableProdBody').innerHTML;
+    
+            //pendiente para la PI: escapar posible codigo html en los inputs
+            document.getElementById('tableProdBody').innerHTML="<tr><td>" + document.getElementById('nombre').value + "</td><td>" + document.getElementById('marca').value + "</td><td>" + document.getElementById('categoria').value + "</td><td>" + document.getElementById('cantidad').value + "</td><td>" + document.getElementById('precio').value + "</td><td>" + document.getElementById('resumen').value + "</td><td>" + document.getElementById('descripcion').value + "</td><td><button>Eliminar</button></td></tr>" + document.getElementById('tableProdBody').innerHTML;
             
             document.getElementById("formulario").style.display="none";
             document.getElementById("botonAniadir").style.display="block";

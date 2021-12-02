@@ -1,17 +1,34 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
   }
   
   .prod {
     max-width: 200px;
     text-align: center;
     margin: 40px;
-    cursor: pointer;
-    /* para que salga el dedo en el cursor */
+    cursor: pointer;/* para que salga el dedo en el cursor */
+    
   }
   
   .prod h2 {
     color: rgb(72, 72, 72);
+    margin: 2px;
+    text-align: left;
+    font-size: large;
+    text-transform: uppercase;
+    /*text-transform esto es nuevo no lo conocia  */
+  }
+  .prod p{
+    margin: 2px;
+    text-align: justify;
   }
   
   #seccionProductos {
@@ -34,8 +51,10 @@ body {
   }
   
   main {
-    max-width: 800px;
-    margin: 0;
+    max-width: 1280px;
+    margin: 0 auto;
+    min-height: 70vh;
+    /* VH viewport height unidad que toma el tamaño de la pantalla del navegador */
   }
 
   .logo{
@@ -58,6 +77,16 @@ body {
     font-size: smaller;
     background-color: rgb(226, 226, 226);
   }
+.secciones a {
+  color: black
+}
+
+.secciones a:visited {
+  color: black;
+  font-weight: 500;
+}
+
+
   .sec{
     padding-top: 5px;
     padding-bottom: 7px;
@@ -71,14 +100,24 @@ body {
     transition: all 1s;
   }
   .banner{
-    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100% ;
+  
+  }
+  
+  .banner video{
     width: 100%;
   }
+
   #filtrosOcultos{
     display: none;
   }
   .novedades{
-    
+    font-style: italic;
+    color: rgb(60, 60, 60);
+    font-size: xx-large;
   }
 
   #tableProd, th, td{
@@ -100,17 +139,18 @@ body {
   }
   /* Reglas de validacion formulario */
   input:invalid{
-    background-color: rgb(255, 223, 186);
+    background-color: rgb(228, 228, 228);
   }
-  input:valid {
-    background-color: rgb(186, 255, 201);
-  }
+  
   .tableAniadir, th, td{
     border:none;
     
   }
   #formulario{
     display: none;
+    margin-left: auto;
+    margin-right: auto;
+
   }
 
   /* Reglas del login */
@@ -121,4 +161,123 @@ body {
     padding: 10px;
     background-color: rgb(204, 204, 204);
     margin-top: 150px;
+    margin-bottom: 150px;
   }
+
+  .contacto{
+    background-color:rgb(0, 0, 255);
+    float: left;
+    color: white;
+    font-size: smaller;
+    display: block;
+    height: 130px;
+    padding: 5px;
+  
+  }
+  /* Reglas del footer */
+  .licencia{
+    display: block;
+    float: right;
+    background-color: rgb(60, 60, 60);
+    font-size: x-small;
+    color: white;
+    padding: 5px;
+    height: 130px;
+    text-align: right;
+  }
+  footer{
+    display: block;
+    background-color: rgb(60, 60, 60);
+
+  }
+
+  .atribuciones{
+    display: block;
+    float: left;
+    font-size: x-small;
+    color: white;
+    background-color: rgb(196, 196, 196);
+    padding: 5px;
+    height:130px;
+    font-weight: bold;
+  }
+
+/* Reglas de la ficha */
+#mostrarFicha{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgb(236, 236, 236);
+  padding: 5px;
+  margin-top: 30px;
+
+}
+#mostrarFicha p{
+  text-align: justify;
+}
+
+#mostrarFicha #fotoPro {
+  padding: 10px;
+}
+
+#mostrarFicha #descPro {
+  padding: 10px;
+  background-color: rgb(60, 60, 60);
+  color: white;
+}
+
+/* Reglas para el carrito */
+
+.tablaCarrito{
+  background-color: rgb(217, 217, 217);
+  width: 70%;
+}
+.tablaCarrito .total{
+  background-color: rgb(60, 60, 60); color: white;
+}
+
+.tablaCarrito .total td#total{
+  width: 60%;
+}
+
+button {
+  background-color: rgb(60,60,60);
+  border: none;
+  padding: 8px 24px;
+  color: white;
+  text-align: center;
+}
+
+.prod img {
+  width: 100%;
+  height: auto;
+}
+.filtros{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  grid-gap: 10px;
+}
+
+/* Reglas de La Tienda */
+#laTienda{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgb(236, 236, 236);
+  padding: 5px;
+  margin-top: 30px;
+}
+#laTienda #parrafo {
+  padding: 10px;
+  background-color: rgb(60, 60, 60);
+  color: white;
+}
+
+#laTienda #intro{
+  vertical-align: top;
+  padding-left: 10px;
+}
+#parrafo{
+  height: auto;
+}

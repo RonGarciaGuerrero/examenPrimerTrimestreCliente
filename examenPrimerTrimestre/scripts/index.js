@@ -8,9 +8,9 @@ var cadena = "";
 for(var i=0; i<productos.length;i++){
     var prod = productos[i];
     cadena +=
-    "<div onclick='window.location=\"./producto.html?idProd="+i+"\"' class='prod'><h2>" +
+    "<div onclick='window.location=\"./producto.html?idProd="+i+"\"' class='prod'><img src="+prod.foto+" height='200px'><br/><h2>" +
     prod.nombre +
-    "</h2>" + "<img src="+prod.foto+" height='200px'>" + "<p>" +
+    "</h2><br/><p>" +
     prod.resumen +
     "</p></div>";
 }  
@@ -97,28 +97,16 @@ window.addEventListener("DOMContentLoaded", function () {//todo lo que debe espe
         document.getElementById("seccionProductos").innerHTML = todosLosProductos;
     });
 
-    /*Este trozo de codigo resuelve el eliminar filas de la tabla de productos*/
-    // https://developer.mozilla.org/es/docs/Web/API/Document/querySelector
-    //var eliminarButtons = document.querySelectorAll(".eliminar");
-
-    //Devuelve un array de los elementos hijos que tengan todos los nombres de clase pasada por parametro 
 
     //https://developer.mozilla.org/es/docs/Web/API/Document/getElementsByClassName
     var eliminarButtons = document.getElementsByClassName("eliminar");
 
     for(var i=0; i<eliminarButtons.length;i++){
         var fila = eliminarButtons[i].parentNode.parentNode;//el primer parentNode del button es el td y el parent del td es el tr
-
-    //eliminarButtons.forEach(function (button) {
         //button.addEventListener("click", function () {
         eliminarButtons[i].addEventListener("click", function () {
         //busco la fila que es padre del boton en el que hice click
-        //var fila = button.parentNode.parentNode;
-
-        // busco el padre de esa fila y le elimino la fila
         fila.parentNode.removeChild(fila);
-        //window.location = "template.html"; 
-        //EJEMPLO DE COMO REDIJIRIR DESPUES DE BORRAR
         });
     };
 
