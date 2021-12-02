@@ -44,6 +44,7 @@ body {
   .eliminar {
     border: 1px solid black;
     background-color: transparent;
+    color: black;
   }
   
   nav ul {
